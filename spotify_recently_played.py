@@ -25,8 +25,8 @@ auth_manager = SpotifyOAuth(
 sp = Spotify(auth_manager=auth_manager)
 
 def get_recently_played_tracks():
-    recently_played = sp.current_user_recently_played(limit=50) # when coding change this line to 1 to just get output
-    # print(recently_played) # use this line shows to retrieve keys and the see the layout of the json
+    recently_played = sp.current_user_recently_played(limit=50) # when coding change limit to 1 to see output
+    # print(recently_played) # use this line to retrieve keys and the see the layout of the json
     return recently_played
 
 def json_to_df(data):
