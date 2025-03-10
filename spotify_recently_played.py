@@ -25,11 +25,13 @@ auth_manager = SpotifyOAuth(
 sp = Spotify(auth_manager=auth_manager)
 
 def get_recently_played_tracks():
+    print("Accessing Spotify to get recently played tracks...")
     recently_played = sp.current_user_recently_played(limit=50) # when coding change limit to 1 to see output
     # print(recently_played) # use this line to retrieve keys and the see the layout of the json
     return recently_played
 
 def json_to_df(data):
+    print("Data retrieved...")
     df = pd.json_normalize(data, "items")
     # print(df.columns) # pull the columns that you will use to construct your dataframe
     return df
@@ -48,7 +50,7 @@ def validate(df: pd.DataFrame) -> bool:
         print("No songs downloaded...")
         return False
     else:
-        print("Downloaded songs. Now loading beginning transform process...")
+        print("Downloaded songs. Now beginning transform process...")
         return df
 
 def load_df(df):
