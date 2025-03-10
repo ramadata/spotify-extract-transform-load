@@ -40,7 +40,7 @@ def transform_df(data: pd.DataFrame):
     transformed.columns = ['track_id', 'track_album_release_date', 'played_at', 'context', 'track_duration_ms', 'track_artists','track_name', 'track_album_name']
     transformed['track_artists'] = transformed['track_artists'].apply(lambda x: x[0]['name'])
     # print(transformed['track_artists']) # check your output
-    print(transformed['context'])
+    # print(transformed['context']) # check if the column is indeed null 
     return transformed
 
 def validate(df: pd.DataFrame) -> bool:
@@ -93,5 +93,5 @@ if __name__ == '__main__':
     df = json_to_df(recent_tracks)
     validated = validate(df)
     transformed = transform_df(validated)
-    #load_df(transformed)
+    load_df(transformed)
 
